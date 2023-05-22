@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import './assets/utils/base/index.scss';
+@import './assets/utils/components/sidenav.scss';
+@import './assets/utils/components/topnav.scss';
+@import './assets/utils/components/textbox.scss';
+@import './assets/utils/components/button.scss';
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'work sans';
+    font-style: normal;
+}

@@ -1,0 +1,98 @@
+@import '../../../../assets/utils/base/variables.scss';
+
+
+
+
+table {
+
+    font-size: 14px;
+    color: $default;
+
+    th {
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.17px;
+        text-align: left;
+        padding: 16px 10px;
+    }
+
+    td {
+        font-weight: 400;
+        line-height: 143%;
+        letter-spacing: 0.17px;
+        padding: 16px 10px;
+    }
+
+
+    tr {
+        background: rgba(255, 255, 255, 0.002);
+        box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
+    }
+}
+
+td {
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+
+    letter-spacing: 0.17px;
+
+    /* Light/Text/Primary */
+
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.pending {
+    color: $default;
+    background: #00000014;
+}
+
+.upcoming {
+    color: $white;
+    background: $primary_main;
+}
+
+.completed {
+    color: $default;
+    background: $secondary_main;
+}
+
+.cancelled {
+    color: $white;
+    background: $error_btn;
+}
+
+.postponed {
+    color: $white;
+    background: $warning_btn;
+}
+
+.pagination {
+
+    padding: 14px;
+
+    span {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 166%;
+        letter-spacing: 0.4px;
+
+        &:nth-child(1) {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        &:nth-child(2) {
+            color: rgba(0, 0, 0, 0.87);
+        }
+    }
+
+    select {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 19px;
+        letter-spacing: 0.3px;
+    }
+
+}

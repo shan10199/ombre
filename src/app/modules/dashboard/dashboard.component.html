@@ -1,0 +1,140 @@
+<main>
+
+    <!-- CHART SECTION  -->
+    <section class="not_table">
+        <div class="chart flex">
+
+            <div class="bar_chart w-[60%]">
+                <div class="flex justify-between ">
+
+                    <div>
+                        <h5>Revenue</h5>
+                        <h6>$10,000</h6>
+                        <div class="flex items-center my-[12px]">
+                            <img class="mr-[5px] h-[15px]" [src]="image?.arrowupwardfilled?.normal" alt="">
+                            <p><span>2.1%</span> vs last week</p>
+                        </div>
+                        <p class="text-[13px]">Sales from 1-12 Dec, 2020</p>
+                    </div>
+
+                    <div class="flex items-center h-fit">
+                        <img class="mr-[29px] h-[26px]" [src]="image?.daterangefilled?.normal" alt="">
+                        <button>View Report</button>
+                    </div>
+
+                </div>
+
+                <div class="mt-[20px]  h-[277px]" [chart]="barchart"></div>
+              <!-- <div class="flex chart_info">
+                    <div class="flex">
+                        <div class="rounded-full h-[9px] w-[9px] bg-[#2D404D] mr-[8px]"> </div>
+                        <div>
+                            <span class="block">Last 6 days</span>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="rounded-full h-[9px] w-[9px] bg-[#C0F8FB] mr-[8px]"> </div>
+                        <div>
+                            <span class="block">Last Week</span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="bg-[#0000001F] w-[2px]  mx-[20px] relative">
+
+            </div>
+
+            <div class="pie_chart w-[40%]">
+                <div class="flex justify-between">
+                    <div>
+                        <h5>Appointment Time</h5>
+                        <p class="text-[13px]">From 1-6 Dec, 2020</p>
+                    </div>
+
+                    <div class="flex items-center h-fit">
+                        <img class="mr-[29px] h-[26px]" [src]="image?.daterangefilled?.normal" alt="">
+                        <button>View Report</button>
+                    </div>
+
+                </div>
+
+                <div class="mt-[20px]  h-[250px]" [chart]="piechart"></div>
+
+                <div class="flex chart_info justify-between mt-[30px]">
+                    <div class="flex">
+                        <div class="rounded-full h-[9px] w-[9px] bg-[#2D404D] mr-[8px]"> </div>
+                        <div>
+                            <span class="block">Afternoon</span>
+                            <span class="font-normal">40%</span>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="rounded-full h-[9px] w-[9px] bg-[#C0F8FB] mr-[8px]"> </div>
+                        <div>
+                            <span class="block">Evening</span>
+                            <span class="font-normal">32%</span>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="rounded-full h-[9px] w-[9px] bg-[#A0E0E3] mr-[8px]"> </div>
+                        <div>
+                            <span class="block">Morning</span>
+                            <span class="font-normal">28%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- CHART SECTION -->
+
+    <!-- TOP SERVICES -->
+
+    <section class="not_table">
+        <div class="top_listing">
+            <div class="flex justify-between">
+
+                <!-- SERVICES -->
+                <div class="services">
+                    <div class="title">
+                        <h6>Most Scheduled Services</h6>
+                        <span>Adipiscing elit, sed do eiusmod tempor</span>
+                    </div>
+                    <div class="content">
+                        <div *ngFor="let data of dummy" class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="img">
+                                    <img [src]="data?.url" alt="">
+                                </div>
+                                <div>
+                                    <label>{{data?.name}}</label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span>{{data?.price}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UPCOMMING -->
+                <div class="upcomings">
+                    <h6 class="border-b-[2px] border-[#243c5a] w-fit">Upcoming Appointment</h6>
+                    <div class="mt-[16px]">
+                        <app-table [tableData]="dummy2" page="dashboard"></app-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TOP SERVICES -->
+</main>

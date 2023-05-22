@@ -1,0 +1,36 @@
+<main>
+
+    <div class="absolute top-[100px] right-[30px]" >
+        <app-buttons label="Add Appointment" class="my-[30px]" (click)="shared.routerlink('/appointments/allappointments/addappointment')"></app-buttons>
+    </div>
+
+    <div class="flex items-center justify-between">
+        <div class="flex ">
+            <div class="w-[200px]">
+                <app-textbox [groupName]="form" label="Outlet" type="select" name="outlet" id="outlet" class="mr-[16px]"
+                    controlName="outlet"></app-textbox>
+            </div>
+
+            <div class="w-[300px]">
+                <app-textbox [groupName]="form" label="From" type="date" name="from" id="from" class="mr-[16px]"
+                    controlName="from"></app-textbox>
+            </div>
+
+            <div class="w-[200px]">
+                <app-textbox [groupName]="form" label="To" type="date" name="to" id="to" controlName="to"></app-textbox>
+            </div>
+        </div>
+        <div>
+            <app-view></app-view>
+        </div>
+    </div>
+
+    <section>
+        <app-table [tableData]="dummy2" page="allappointments" pagination="true"></app-table>
+    </section>
+
+    <!-- <section>
+
+    </section> -->
+
+</main>

@@ -1,0 +1,144 @@
+<div *ngIf="type != 'select' && type != 'chips' && type != 'date'">
+    <form>
+        <div class="anim_textbox line_box flex flex-col {{class}} relative">
+
+            <input [type]="type" class="anim_input input" [name]="name" [id]="id" autocomplete="nope"
+                [formControl]="groupName.controls[controlName]" (ngModelChange)="modelChange(controlName)">
+
+            <span class="underline"></span>
+            <label [for]="id">{{label}}</label>
+
+        </div>
+    </form>
+</div>
+
+
+<div *ngIf="type == 'date'">
+    <form>
+        <div class="square_box flex flex-col {{class}} relative">
+            <img class="h-[25px] absolute right-[10px] top-[39px]" [src]="image?.CalenderTodayOutlined?.normal"
+                alt="icon">
+            <label [for]="id" class="f400_16_15 mb-[4px]">{{label}}</label>
+
+            <input type="text" class="anim_input input input_date" [name]="name" [id]="id" autocomplete="nope"
+                [formControl]="groupName.controls[controlName]" (ngModelChange)="modelChange(controlName)" readonly>
+
+            <div class="date_dropdown date_down overflow-hidden hidden absolute z-10 w-full top-[76px] cal_dropdown">
+
+                <span>Select Date & Time</span>
+                <div class="calender_header">
+                    <span>{{date | date: 'YYYY'}}</span><br>
+                </div>
+
+                <div>
+                    <div class="flex w-full calender_section">
+                        <div class="w-1/2 text-center calender_icon">
+                            <div>
+                                <span class="dropdown_date ">{{date | date: 'MMM'}} {{date | date: 'd'}}</span>
+                                <img class="mx-auto mt-[15px] cursor-pointer" [src]="image?.daterangefilled?.normal"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="w-1/2 timer_icon">
+                            <div class="text-center">
+                                <span class="dropdown_time">{{date | date:'HH:mm'}}</span>
+                                <img class="mx-auto mt-[15px] cursor-pointer" [src]="image?.QueryBuilderFilled?.normal"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line_border tab_slider"> </div>
+                </div>
+
+                <div class="flex tab_element">
+                    <div class="w-full shrink-0">
+                        <mat-calendar (selectedChange)="onDateChange($event)"></mat-calendar>
+                    </div>
+                    <div class="w-full shrink-0 relative">
+                        <div class="flex center_to_div">
+                            <input type="time" matInput name="week" min="00:00" max="23:59"/>
+                            <!-- <div class="max-h-[100px] overflow-auto">
+                                <div class="time_hours" *ngFor="let hour of hours">
+                                    <span>{{hour + 1}}</span>
+                                </div>
+                            </div>
+                            <div class="max-h-[100px] overflow-auto">
+                                <div class="time_minutes" *ngFor="let min of minutes">
+                                    <span>{{min +1}}</span>
+                                </div>
+                            </div> -->
+                        </div>
+                        <!--  <ngx-material-timepicker [(ngModel)]="selectedTime"
+                            (change)="onTimeSelected()"></ngx-material-timepicker> -->
+                    </div>
+                </div>
+
+                <div class="calender_bottom mt-[15px]">
+                    <a href="javascript:void(0)" id="cancel">Cancel</a>
+                    <a href="javascript:void(0)">Confirm</a>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+<div *ngIf="type == 'select'">
+    <form>
+        <div class="square_box flex flex-col {{class}} relative">
+            <img class="h-[25px] absolute right-[10px] top-[39px]" [src]="image?.ArrowDropDownOutlined?.normal"
+                alt="icon">
+            <label [for]="id" class="f400_16_15 mb-[4px]">{{label}}</label>
+
+            <input type="text" class="anim_input input select_box" [name]="name" [id]="id" autocomplete="off"
+                [formControl]="groupName.controls[controlName]" (ngModelChange)="modelChange(controlName)" readonly>
+
+            <div class="select_dropdown dropdown f400_16_15 absolute hidden w-full z-10 top-[76px]">
+                <span class="dropdown_item">ecite</span>
+                <span class="dropdown_item">detail</span>
+                <span class="dropdown_item">outline</span>
+                <span class="dropdown_item">catalog</span>
+                <span class="dropdown_item">enumerate</span>
+                <span class="dropdown_item">itemize</span>
+
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div *ngIf="type == 'chips'">
+    <form>
+        <div class="square_box flex flex-col {{class}} relative">
+            <img class="h-[25px] absolute right-[10px] top-[39px]" [src]="image?.ArrowDropDownOutlined?.normal"
+                alt="icon">
+            <label [for]="id" class="f400_16_15 mb-[4px]">{{label}}</label>
+
+            <div class="input_chips_whole ">
+                <div class="input_div flex items-center">
+                    <div *ngFor="let chip of chips" class="chips_whole flex items-center mr-[10px]">
+                        <div class="mr-[8px]">
+                            <span>{{chip}}</span>
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" (click)="deleteChip(chip)"><img
+                                    [src]="image?.CloseCircleGreen?.normal" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chip_dropdown dropdown f400_16_15 hidden absolute w-full z-10 top-[76px]">
+                    <span (click)="addChips('ecite')">ecite</span>
+                    <span (click)="addChips('detail')">detail</span>
+                    <span (click)="addChips('outline')">outline</span>
+                    <span (click)="addChips('catalog')">catalog</span>
+                    <span (click)="addChips('enumerate')">enumerate</span>
+                    <span (click)="addChips('itemize')">itemize</span>
+
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

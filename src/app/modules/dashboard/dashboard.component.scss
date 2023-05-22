@@ -1,0 +1,151 @@
+@import '../../../assets/utils/base/variables.scss';
+
+.chart {
+
+    h5 {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: $ltr_spg_5;
+        margin-bottom: 8px;
+    }
+
+    h6 {
+        color: $default;
+    }
+
+    p {
+        font-weight: 400;
+        color: $black;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: $ltr_spg_5;
+        opacity: 0.5;
+
+        span {
+            font-weight: 600;
+            color: $primary_dark;
+            opacity: 1;
+        }
+    }
+
+    button {
+        background: #FBFCFE;
+        border: 0.5px solid #DDE4F0;
+        box-shadow: 0px 2px 1px rgba(64, 72, 82, 0.05);
+        border-radius: 5px;
+        padding: 6px 16px;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: $ltr_spg_5;
+        color: #506B62;
+    }
+
+    .chart_info {
+        span {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 12px;
+            letter-spacing: $ltr_spg_5;
+            color: #121212;
+        }
+    }
+
+}
+
+.pie_section {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: 0.3px;
+}
+
+.pie_time {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.3px;
+    opacity: 0.5;
+}
+
+.pie_count {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.3px;
+}
+
+.top_listing {
+    .services {
+
+        min-width: 300px;
+        margin-right: 22px;
+
+        h6 {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: $ltr_spg_5;
+            color: $black;
+            margin-bottom: 21px;
+        }
+
+        span {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 22px;
+            letter-spacing: $ltr_spg_5;
+            color: $black;
+            opacity: 0.5;
+        }
+
+        label {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .content {
+        margin-top: 15.6px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: $ltr_spg_5;
+        color: #273240;
+
+        >div {
+            padding-bottom: 12px;
+            padding-top: 15px;
+            opacity: 0.8;
+            border-bottom: 0.5px solid #DBE5EB;
+        }
+
+        .img {
+            height: 38.9px;
+            width: 38.9px;
+            border-radius: 50%;
+            overflow: hidden;
+            object-fit: contain;
+            margin-right: 15.6px;
+            box-shadow: 0px 12px 6px 0px #E0E0E0;
+        }
+
+        span {
+            opacity: 0.7;
+        }
+
+    }
+
+    .upcomings {
+        background: rgba(218, 157, 152, 0.12);
+        border-radius: 10px;
+        padding: 10px;
+        width: calc(100% - 322px);
+
+        h6 {
+            color: $default;
+            border-color: $default;
+        }
+    }
+}

@@ -1,0 +1,131 @@
+<main>
+    <div class="sidenav">
+        <div style="margin-left: 24px;">
+            <img [src]="logo" alt="">
+        </div>
+        <div>
+            <div class="side_menus">
+                <ul>
+                    <li *ngFor="let menu of menus; let i = index">
+                        <a [id]="'1-'+menu?.id" (click)="handleClicked('1-'+menu?.id, menu)" href="javascript:void(0)"
+                            class="flex items-center w-full main_menu">
+                            <div class="flex w-full items-center">
+                                <div class="menu_icon">
+                                    <img class="in-st" [src]="menu.normal" alt="icon">
+                                    <img class="ac-st" [src]="menu.active" alt="icon">
+                                </div>
+                                <div class="menu_name">
+                                    {{menu?.name}}
+                                </div>
+                            </div>
+                            <div *ngIf="menu?.children" class="menu_icon exd_arrow">
+                                <img class="in-st" [src]="image?.expand_arrow?.normal" alt="arrow">
+                                <img class="ac-st" [src]="image?.expand_arrow?.active" alt="arrow">
+                            </div>
+                        </a>
+
+                        <div class="sub_menu_list">
+                            <div *ngFor="let child of menu?.children; let j = index">
+                                <a [id]="'2-'+child?.id" (click)="handleClicked('2-'+child?.id, child)"
+                                    href="javascript:void(0)" class="flex w-full items-center sub_menu main_menu">
+                                    <div class="flex w-full items-center">
+                                        <div class="menu_icon sub_menu">
+                                            <img class="in-st" [src]="child.normal" [alt]="child?.name">
+                                            <img class="ac-st" [src]="child.active" [alt]="child?.name">
+                                        </div>
+                                        <div class="menu_name sub_menu">
+                                            {{child?.name}}
+                                        </div>
+                                    </div>
+                                    <div *ngIf="child?.children" class="menu_icon exd_arrow">
+                                        <img class="in-st" [src]="image?.expand_arrow?.normal" alt="arrow">
+                                        <img class="ac-st" [src]="image?.expand_arrow?.active" alt="arrow">
+                                    </div>
+                                </a>
+
+                                <div class="child_sub_menu_list">
+                                    <div *ngFor="let sub_child of child?.children; let k = index">
+                                        <a [id]="'3-'+sub_child?.id" (click)="handleClicked('3-'+sub_child?.id, sub_child)"
+                                            href="javascript:void(0)"
+                                            class="flex w-full items-center sub_menu main_menu">
+                                            <div class="flex w-full items-center">
+                                                <div class="menu_icon sub_menu">
+                                                    <img class="in-st" [src]="sub_child.normal" [alt]="sub_child?.name">
+                                                    <img class="ac-st" [src]="sub_child.active" [alt]="sub_child?.name">
+                                                </div>
+                                                <div class="menu_name sub_menu">
+                                                    {{sub_child?.name}}
+                                                </div>
+                                            </div>
+                                            <div *ngIf="sub_child?.children" class="menu_icon exd_arrow">
+                                                <img class="in-st" [src]="image?.expand_arrow?.normal" alt="arrow">
+                                                <img class="ac-st" [src]="image?.expand_arrow?.active" alt="arrow">
+                                            </div>
+                                        </a>
+
+                                        <div class="nest_child_sub_menu_list">
+                                            <div *ngFor="let nest_child of sub_child?.children; let l = index">
+                                                <a [id]="'4-'+nest_child?.id" (click)="handleClicked('4-'+nest_child?.id, nest_child)"
+                                                    href="javascript:void(0)"
+                                                    class="flex w-full items-center sub_menu main_menu">
+                                                    <div class="flex w-full items-center">
+                                                        <div class="menu_icon sub_menu">
+                                                            <img class="in-st" [src]="nest_child.normal" [alt]="nest_child?.name">
+                                                            <img class="ac-st" [src]="nest_child.active" [alt]="nest_child?.name">
+                                                        </div>
+                                                        <div class="menu_name sub_menu">
+                                                            {{nest_child?.name}}
+                                                        </div>
+                                                    </div>
+                                                    <div *ngIf="nest_child?.children" class="menu_icon exd_arrow">
+                                                        <img class="in-st" [src]="image?.expand_arrow?.normal" alt="arrow">
+                                                        <img class="ac-st" [src]="image?.expand_arrow?.active" alt="arrow">
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+
+            <div class="logo_out">
+                <a href="javascript:void(0)" class="flex w-full main_menu">
+                    <div class="flex w-full">
+                        <div class="menu_icon">
+                            <img class="in-st" [src]="image?.logout?.normal" alt="logout">
+                            <img class="ac-st" [src]="image?.logout?.active" alt="logout">
+                        </div>
+                        <div class="menu_name">
+                            Log Out
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="child">
+        <div class="page_identifiers mb-[36px]">
+            <h6 class="mb-[8px]">
+                {{identifier?.title}}
+            </h6>
+            <a (click)="shared.routerlink(breadcrumb?.key)" *ngFor="let breadcrumb of identifier?.breadcrumbs; let i = index;" class="body1"
+                [ngClass]="{'links': i != identifier?.breadcrumbs?.length - 1, 'curr':  i == identifier?.breadcrumbs?.length - 1}" href="javascript:void(0)">
+                {{breadcrumb?.name}}
+            </a>
+        </div>
+
+        <ng-content></ng-content>
+    </div>
+</main>

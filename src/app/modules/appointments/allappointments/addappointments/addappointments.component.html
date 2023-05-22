@@ -1,0 +1,42 @@
+<main>
+    <section class="p-[40px]">
+
+        <div class="mb-[40px]">
+            <h5 class="section_title">Appointment Information</h5>
+        </div>
+
+        <form [formGroup]="form">
+            <div class="flex justify-between">
+
+                <div class="w-1/2 mr-[40px]">
+                    <div *ngFor="let field of addappointment?.row1">
+                        <app-textbox [groupName]="form" [label]="field?.label" [type]="field?.type" [name]="field?.name"
+                            [id]="field?.id" class="{{err_fields?.includes(field?.controlName) ? 'err' : ''}} mb-[40px]"
+                            [controlName]="field?.controlName" [modelChange]="remErrFields"></app-textbox>
+                    </div>
+                </div>
+
+                <div class="w-1/2">
+                    <div *ngFor="let field of addappointment?.row2">
+                        <app-textbox [groupName]="form" [label]="field?.label" [type]="field?.type" [name]="field?.name"
+                            [id]="field?.id" class="{{err_fields?.includes(field?.controlName) ? 'err' : ''}} mb-[40px]"
+                            [controlName]="field?.controlName" [modelChange]="remErrFields"></app-textbox>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex">
+                <div class="mr-[40px] min-w-[140px]">
+                    <app-buttons label="Cancel" class="secondary"></app-buttons>
+                </div>
+                <div class="min-w-[140px]">
+                    <app-buttons label="Create"></app-buttons>
+                </div>
+            </div>
+        </form>
+
+
+
+    </section>
+</main>

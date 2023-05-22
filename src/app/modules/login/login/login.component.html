@@ -1,0 +1,36 @@
+<main>
+    <div>
+        <div class="flex justify-between">
+            <div class="w-2/4 relative">
+                <div class="w-2/4 login_inner center_to_div">
+                    <div class="text-center mb-[40px]">
+                        <img class="mx-auto" [src]="image?.full_logo" alt="logo">
+                        <h4>Welcome back</h4>
+                    </div>
+
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                        <app-textbox [groupName]="form" label="Email" type="text" name="email" id="email"
+                            class="mb-[40px] {{err_fields?.includes('email') ? 'err' : ''}}" controlName="email"
+                            [modelChange]="remErrFields"></app-textbox>
+
+                        <app-textbox [groupName]="form" label="Password" type="password" name="password" id="password"
+                            class="{{err_fields?.includes('email') ? 'err' : ''}}" controlName="password"
+                            [modelChange]="remErrFields"></app-textbox>
+
+                        <div class="my-[26px]">
+                            <app-checkbox (checkvalue)="handleCheckBox($event)">
+                                <span>Remember Me</span>&nbsp;
+                                <a style="color: #D72C0D;" href="javascript:void(0)" (click)="routerLink('resetpassword')">Forgot Password</a>
+                            </app-checkbox>
+                            <app-buttons label="Login" class="my-[30px]"></app-buttons>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="w-2/4 login_cover">
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,69 @@
+<main>
+    <div>
+        <div>
+            <table class="w-full">
+                <tbody>
+                    <tr>
+                        <th *ngFor="let head of config">{{head?.title}}</th>
+                    </tr>
+                    <tr *ngFor="let data of tableData">
+                        <td *ngFor="let key of config">
+                            <span *ngIf="key?.accessor != 'status' && key?.accessor != 'action'">
+                                {{key?.format == 't-d' ? (data[key?.accessor] | date:'hh:mm') + ' | '+
+                                (data[key?.accessor]
+                                | date:'dd/MM/yyyy') : key?.format == 'd' ? (data[key?.accessor]
+                                | date:'dd/MM/yyyy') : data[key?.accessor]}}
+                            </span>
+
+                            <span class="py-[7px] px-[10px] rounded-[16px]" [class]="data[key?.accessor]"
+                                *ngIf="key?.accessor == 'status'">
+                                {{data[key?.accessor] | titlecase}}
+                            </span>
+
+                            <span *ngIf="key?.accessor == 'action'">
+                                <div class="flex items-center">
+                                    <a class="mr-[8px]" href="javascript:void(0)">
+                                        <img [src]="image?.EditFilled?.normal" alt="edit">
+                                    </a>
+                                    <a class="mr-[8px]" href="javascript:void(0)">
+                                        <img [src]="image?.TransferWithinaStationOutlined?.normal" alt="edit">
+                                    </a>
+                                    <a href="javascript:void(0)">
+                                        <img [src]="image?.archived?.normal" alt="edit">
+                                    </a>
+                                </div>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+            </mat-paginator> -->
+            <div class="pagination" *ngIf="pagination">
+                <div class="flex items-center justify-end">
+                    <div class="flex items-center">
+                        <span>Rows per page:</span>
+                        <div class="relative">
+                            <select name="pagination" id="pagination" class="outline-none w-[40px] ml-[8px]">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                            </select>
+                            <img class="absolute top-[1px] right-0" [src]="image?.ArrowDropDownOutlined?.normal" alt="">
+                        </div>
+                        <span class="ml-[30px]">1-5 of 13</span>
+                    </div>
+                    <div class="flex items-center ml-[30px]">
+                        <a class="mr-[20px]" href="javascript:void(0)">
+                            <img [src]="image?.ChevronLeftOutlined?.normal" alt="edit">
+                        </a>
+                        <a href="javascript:void(0)">
+                            <img class="h-[26px]" [src]="image?.ChevronRightFilled?.normal" alt="edit">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
