@@ -36,13 +36,16 @@ export class LoginComponent {
   }
 
   onSubmit() {
-
     Object.keys(this.form.controls).forEach(field => {
       if (this.form.get(field).invalid && !this.err_fields?.includes(field)) {
         this.err_fields?.push(field)
       }
     });
     this.form.get('remember').setValue(this.form.get('remember') ? true : false)
+
+    if(this.form.controls['email'].valid && this.form.controls['password'].valid ) {
+        this.routerLink('dashboard')
+    }
   }
 
   routerLink(params: any) {

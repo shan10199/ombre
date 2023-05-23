@@ -27,6 +27,8 @@ export class AllappointmentsComponent {
     })
   }
 
+  
+
   dummy2 = [
     {
       appointment_id: 'AP0001',

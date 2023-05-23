@@ -15,7 +15,7 @@
 
 <div *ngIf="type == 'date'">
     <form>
-        <div class="square_box flex flex-col {{class}} relative">
+        <div class="square_box flex flex-col {{class}} relative date_input_whole">
             <img class="h-[25px] absolute right-[10px] top-[39px]" [src]="image?.CalenderTodayOutlined?.normal"
                 alt="icon">
             <label [for]="id" class="f400_16_15 mb-[4px]">{{label}}</label>
@@ -31,7 +31,7 @@
                 </div>
 
                 <div>
-                    <div class="flex w-full calender_section">
+                    <div class="flex w-full calender_section items-center">
                         <div class="w-1/2 text-center calender_icon">
                             <div>
                                 <span class="dropdown_date ">{{date | date: 'MMM'}} {{date | date: 'd'}}</span>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="w-full shrink-0 relative">
                         <div class="flex center_to_div">
-                            <input type="time" matInput name="week" min="00:00" max="23:59"/>
+                            <input type="time" matInput name="week" min="00:00" max="23:59" />
                             <!-- <div class="max-h-[100px] overflow-auto">
                                 <div class="time_hours" *ngFor="let hour of hours">
                                     <span>{{hour + 1}}</span>
@@ -91,18 +91,33 @@
                 alt="icon">
             <label [for]="id" class="f400_16_15 mb-[4px]">{{label}}</label>
 
-            <input type="text" class="anim_input input select_box" [name]="name" [id]="id" autocomplete="off"
-                [formControl]="groupName.controls[controlName]" (ngModelChange)="modelChange(controlName)" readonly>
+            <!-- <input type="text" class="anim_input input select_box" [name]="name" [id]="id" autocomplete="off"
+                [formControl]="groupName.controls[controlName]" (ngModelChange)="modelChange(controlName)" [matAutocomplete]="auto" readonly>
 
-            <div class="select_dropdown dropdown f400_16_15 absolute hidden w-full z-10 top-[76px]">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of select" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete> -->
+
+
+            <input type="text" matInput [matAutocomplete]="auto" class="anim_input input select_box" [name]="name" [id]="id" autocomplete="off"
+            [formControl]="groupName.controls[controlName]" (ngModelChange)="modelChange(controlName)">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of select" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+
+
+            <!-- <div class="select_dropdown dropdown f400_16_15 absolute hidden w-full z-10 top-[76px]">
                 <span class="dropdown_item">ecite</span>
                 <span class="dropdown_item">detail</span>
                 <span class="dropdown_item">outline</span>
                 <span class="dropdown_item">catalog</span>
                 <span class="dropdown_item">enumerate</span>
                 <span class="dropdown_item">itemize</span>
-
-            </div>
+            </div> -->
 
         </div>
     </form>

@@ -14,7 +14,7 @@ export class TextboxComponent {
   @Input() label: any; @Input() type: any; @Input() name: any; @Input() id: any; @Input() class: any;
   @Input() groupName: any; @Input() controlName: any; @Input() modelChange: any;
 
-  selectedTime: any;
+  selectedTime: any; select: any =['Option 1','Option 2','Option 3','Option 4','Option 5', ]
 
   onTimeSelected() {
     // Handle the selected time
@@ -43,5 +43,6 @@ export class TextboxComponent {
       this.chips.splice(index, 1)
     }
   }
+
 
 }

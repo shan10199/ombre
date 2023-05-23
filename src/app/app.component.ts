@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { sidenav } from 'src/app/config/interface'
 
 declare const clicked: any
 
@@ -8,6 +9,10 @@ declare const clicked: any
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Ombre';
+  title = 'Ombre'; component: any;
 
+  onActivate(event: any) {
+    this.component = sidenav?.includes(event) ? false : true
+    
+  }
 }

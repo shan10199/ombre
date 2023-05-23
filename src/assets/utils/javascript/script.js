@@ -49,6 +49,13 @@ $(document).on('click', '.input_div', function () {
     $(this).next('div').slideToggle('fast', 'swing');
 })
 
+$(document).mouseup(function (e) {
+    var container = $(".date_input_whole");
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+        $(this).find('.cal_dropdown').slideUp('fast', 'swing');
+    }
+});
+
 
 $(document).mouseup(function (e) {
     var container = $(".input_chips_whole");

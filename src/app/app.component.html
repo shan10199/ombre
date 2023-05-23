@@ -3,9 +3,13 @@
 
 
 
-<div>
-    <app-topnav></app-topnav>
-    <app-sidenav>
-        <router-outlet></router-outlet>
-    </app-sidenav>
-</div>
+<div *ngIf="component; then isLogged else notLogged"></div>
+<ng-template #isLogged>
+    <div>
+        <app-topnav></app-topnav>
+        <app-sidenav>
+            <router-outlet (activate)="onActivate($event)"></router-outlet>
+        </app-sidenav>
+    </div>
+</ng-template>
+<ng-template #notLogged><router-outlet (activate)="onActivate($event)"></router-outlet></ng-template>
